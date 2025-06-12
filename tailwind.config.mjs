@@ -1,7 +1,9 @@
 /** @type {import('tailwindcss').Config} */
-
-export default {
-  content: ['./src/**/*.{mjs,js,ts,jsx,tsx}'],
+module.exports = {
+  content: [
+    './index.html',
+    './src/**/*.{js,ts,jsx,tsx}' // quét toàn bộ source
+  ],
   theme: {
     extend: {}
   },
