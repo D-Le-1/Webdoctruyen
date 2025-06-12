@@ -137,8 +137,8 @@ const ReadComic: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center gap-4 p-4">
-      <div className="sticky top-0 z-10 w-full max-w-screen-md rounded-lg bg-white p-4 shadow-md">
-        <h1 className="mb-4 text-center text-xl font-bold">
+      <div className="top-0 z-10 w-full max-w-screen-md rounded-lg bg-white p-4 shadow-md">
+        <h1 className="text-md mb-4 text-center">
           {item.comic_name} - Chương{' '}
           {currentChapterInfo?.chapter_name || item.chapter_name}
         </h1>
@@ -152,7 +152,7 @@ const ReadComic: React.FC = () => {
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'
             }`}
           >
-            ← Chương trước
+            ← Previous
           </button>
           <button
             onClick={goToChapterList}
@@ -169,7 +169,7 @@ const ReadComic: React.FC = () => {
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'
             }`}
           >
-            Chương sau →
+            Next →
           </button>
         </div>
         {allChapters.length > 0 && (
@@ -200,9 +200,9 @@ const ReadComic: React.FC = () => {
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'
             }`}
           >
-            ← Chương trước
+            ← Previous
           </button>
-          <span className="text-sm font-medium text-gray-600">
+          <span className="text-md font-medium text-gray-600">
             Chương {currentChapterInfo?.chapter_name || item.chapter_name}
           </span>
           <button
@@ -214,7 +214,7 @@ const ReadComic: React.FC = () => {
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'
             }`}
           >
-            Chương sau →
+            Next →
           </button>
         </div>
       </div>
