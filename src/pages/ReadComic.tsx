@@ -146,7 +146,7 @@ const ReadComic: React.FC = () => {
           <button
             onClick={goToPreviousChapter}
             disabled={!hasPreviousChapter}
-            className={`w-32 rounded-lg px-4 py-2 font-medium ${
+            className={`w-28 rounded-lg px-4 py-2 font-medium ${
               hasPreviousChapter
                 ? 'bg-blue-500 text-white hover:bg-blue-600'
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'
@@ -163,7 +163,7 @@ const ReadComic: React.FC = () => {
           <button
             onClick={goToNextChapter}
             disabled={!hasNextChapter}
-            className={`w-32 rounded-lg px-4 py-2 font-medium ${
+            className={`w-28 rounded-lg px-4 py-2 font-medium ${
               hasNextChapter
                 ? 'bg-blue-500 text-white hover:bg-blue-600'
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'
@@ -194,7 +194,7 @@ const ReadComic: React.FC = () => {
           <button
             onClick={goToPreviousChapter}
             disabled={!hasPreviousChapter}
-            className={`w-32 rounded-lg px-4 py-2 font-medium ${
+            className={`w-28 rounded-lg px-4 py-2 font-medium ${
               hasPreviousChapter
                 ? 'bg-blue-500 text-white hover:bg-blue-600'
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'
@@ -208,7 +208,7 @@ const ReadComic: React.FC = () => {
           <button
             onClick={goToNextChapter}
             disabled={!hasNextChapter}
-            className={`w-32 rounded-lg px-4 py-2 font-medium ${
+            className={`w-28 rounded-lg px-4 py-2 font-medium ${
               hasNextChapter
                 ? 'bg-blue-500 text-white hover:bg-blue-600'
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'

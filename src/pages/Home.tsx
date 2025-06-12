@@ -40,7 +40,7 @@ const Home: React.FC = () => {
   const totalPages = Math.ceil(totalItems / totalItemsPerPage)
 
   return (
-    <div className="mx-auto max-w-screen-xl space-x-5 p-4 md:container">
+    <div className="container mx-auto">
       <SliderBanner items={truyenList} />
       <h1 className="mb-4 text-2xl font-bold">Truyện đang phát hành</h1>
 

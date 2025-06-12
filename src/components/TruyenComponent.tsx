@@ -9,13 +9,13 @@ interface TruyenCardProps {
 
 const TruyenCard: React.FC<TruyenCardProps> = ({ truyen }) => {
   return (
-    <div className="group relative max-w-sm overflow-hidden rounded-lg border border-gray-200 bg-white transition-all duration-300 hover:shadow-xl">
+    <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white transition-all duration-300 hover:shadow-xl">
       {/* Image Container */}
       <div className="relative flex items-center justify-center overflow-hidden">
         <img
           src={`https://img.otruyenapi.com/uploads/comics/${truyen.thumb_url}`}
           alt={truyen.name}
-          className="h-72 w-full object-center transition-transform duration-300 group-hover:scale-105 md:h-96 md:w-80"
+          className="h-64 w-full object-center transition-transform duration-300 group-hover:scale-105 md:h-96 md:w-80"
         />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
