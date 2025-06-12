@@ -146,30 +146,30 @@ const ReadComic: React.FC = () => {
           <button
             onClick={goToPreviousChapter}
             disabled={!hasPreviousChapter}
-            className={`rounded-lg px-4 py-2 font-medium ${
+            className={`w-32 rounded-lg px-4 py-2 font-medium ${
               hasPreviousChapter
                 ? 'bg-blue-500 text-white hover:bg-blue-600'
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'
             }`}
           >
-            ← Previous
+            ←
           </button>
           <button
             onClick={goToChapterList}
             className="rounded-lg bg-green-500 px-4 py-2 font-medium text-white hover:bg-green-600"
           >
-            Danh sách chương
+            Chương
           </button>
           <button
             onClick={goToNextChapter}
             disabled={!hasNextChapter}
-            className={`rounded-lg px-4 py-2 font-medium ${
+            className={`w-32 rounded-lg px-4 py-2 font-medium ${
               hasNextChapter
                 ? 'bg-blue-500 text-white hover:bg-blue-600'
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'
             }`}
           >
-            Next →
+            →
           </button>
         </div>
         {allChapters.length > 0 && (
@@ -194,13 +194,13 @@ const ReadComic: React.FC = () => {
           <button
             onClick={goToPreviousChapter}
             disabled={!hasPreviousChapter}
-            className={`rounded-lg px-4 py-2 font-medium ${
+            className={`w-32 rounded-lg px-4 py-2 font-medium ${
               hasPreviousChapter
                 ? 'bg-blue-500 text-white hover:bg-blue-600'
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'
             }`}
           >
-            ← Previous
+            ←
           </button>
           <span className="text-md font-medium text-gray-600">
             Chương {currentChapterInfo?.chapter_name || item.chapter_name}
@@ -208,13 +208,13 @@ const ReadComic: React.FC = () => {
           <button
             onClick={goToNextChapter}
             disabled={!hasNextChapter}
-            className={`rounded-lg px-4 py-2 font-medium ${
+            className={`w-32 rounded-lg px-4 py-2 font-medium ${
               hasNextChapter
                 ? 'bg-blue-500 text-white hover:bg-blue-600'
                 : 'cursor-not-allowed bg-gray-300 text-gray-500'
             }`}
           >
-            Next →
+            →
           </button>
         </div>
       </div>

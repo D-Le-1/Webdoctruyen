@@ -15,7 +15,7 @@ const TruyenCard: React.FC<TruyenCardProps> = ({ truyen }) => {
         <img
           src={`https://img.otruyenapi.com/uploads/comics/${truyen.thumb_url}`}
           alt={truyen.name}
-          className="h-80 w-full object-center transition-transform duration-300 group-hover:scale-105 md:h-96 md:w-80"
+          className="h-72 w-full object-center transition-transform duration-300 group-hover:scale-105 md:h-96 md:w-80"
         />
         {/* Gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
