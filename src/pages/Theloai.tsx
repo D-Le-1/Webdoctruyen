@@ -6,7 +6,7 @@ import PaginationComponent from '../components/PaginationComponent'
 import { Truyen } from '../utils/type'
 
 const TheloaiPage: React.FC = () => {
-  const { slug } = useParams<{ slug: string }>()
+  const { slug } = useParams<{ slug: string | undefined }>()
   const [page, setPage] = useState(1)
   const {
     data: theloaiData,

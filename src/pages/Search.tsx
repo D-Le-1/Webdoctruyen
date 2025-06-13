@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTheloai } from '../hooks/useTheloai'
 import { Link } from 'react-router-dom'
+import { Theloai } from '../utils/type'
 
 const Search = () => {
   const { data: theloaiData, isLoading, isError } = useTheloai()
@@ -23,7 +24,7 @@ const Search = () => {
       </div>
       <p className="mb-4 text-xl font-bold">Danh sách thể loại:</p>
       <ul className="grid grid-cols-2 gap-2">
-        {theloaiData?.items.map((item) => (
+        {theloaiData?.items.map((item: Theloai) => (
           <li key={item._id} className="mb-2">
             <Link to={`/the-loai/${item.slug}`}>{item.name}</Link>
           </li>
