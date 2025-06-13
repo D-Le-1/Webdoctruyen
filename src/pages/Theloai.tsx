@@ -12,7 +12,7 @@ const TheloaiPage: React.FC = () => {
     data: theloaiData,
     isLoading,
     isError
-  } = useTruyenByTheloai(slug, page)
+  } = useTruyenByTheloai(slug!, page)
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage)
