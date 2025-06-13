@@ -76,6 +76,7 @@ export interface Truyen {
   name: string
   slug: string
   title: string
+  status: 'ongoing' | 'completed'
   thumb_url: string
   chaptersLatest: Chapter[]
 }
@@ -112,4 +113,10 @@ export interface Pagination {
 export interface ServerData {
   server_name: string
   server_data: ChapterImage[]
+}
+
+export interface Theloai {
+  _id: string
+  name: string
+  slug: string
 }
