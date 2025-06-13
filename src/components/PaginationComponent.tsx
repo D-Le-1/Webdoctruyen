@@ -46,13 +46,13 @@ const PaginationComponent: React.FC<PaginationProps> = ({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className={`rounded-md px-3 py-2 ${
+        className={`rounded-md px-3 py-2${
           currentPage === 1
             ? 'cursor-not-allowed bg-gray-200 text-gray-400'
             : 'bg-blue-500 text-white hover:bg-blue-600'
         }`}
       >
-        ‹ Trước
+        ‹
       </button>
 
       {/* First page */}
@@ -108,7 +108,7 @@ const PaginationComponent: React.FC<PaginationProps> = ({
             : 'bg-blue-500 text-white hover:bg-blue-600'
         }`}
       >
-        Sau ›
+        ›
       </button>
     </div>
   )

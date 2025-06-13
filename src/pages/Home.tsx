@@ -5,6 +5,7 @@ import SliderBanner from 'components/SliderBanner'
 import { Truyen } from '../utils/type'
 import { useTruyenHome } from '../hooks/useTruyenhome'
 import PaginationComponent from '../components/PaginationComponent'
+import { Link } from 'react-router-dom'
 
 const Home: React.FC = () => {
   const [page, setPage] = useState(1)
@@ -49,15 +50,20 @@ const Home: React.FC = () => {
       {homeTruyenList.length > 0 && (
         <div className="mb-8 p-4">
           <h2 className="mb-4 text-xl font-semibold">Truyện đề cử</h2>
-          <div className="flex overflow-x-auto">
+          <div className="flex w-full snap-x scroll-pl-6 space-x-4 overflow-x-auto">
             {homeTruyenList.map((truyen) => (
-              <div key={truyen.slug} className="mr-4">
+              <Link
+                to={`/truyen/${truyen.slug}`}
+                key={truyen.slug}
+                className="mr-4 min-w-40 snap-start md:min-w-80"
+              >
                 <img
                   src={`https://img.otruyenapi.com/uploads/comics/${truyen.thumb_url}`}
                   alt={truyen.name}
-                  className="h-20 w-full object-cover transition-transform duration-300 group-hover:scale-105 md:h-96 md:w-80"
+                  className="h-20 w-full object-cover transition-transform duration-300 group-hover:scale-105 md:h-96"
                 />
-              </div>
+                <h3 className="text-md mt-2 font-semibold">{truyen.name}</h3>
+              </Link>
             ))}
           </div>
         </div>
