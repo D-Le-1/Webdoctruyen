@@ -43,3 +43,8 @@ export const fetchTruyenByTheloai = async (slug: string, page = 1) => {
   const res = await axios.get(`${API_BASE_URL}/the-loai/${slug}?page=${page}`)
   return res.data.data
 }
+
+export const SearchTruyen = async ({ keyword }: { keyword: string }) => {
+  const res = await axios.get(`${API_BASE_URL}/tim-kiem?keyword=${keyword}`)
+  return res.data.data
+}
