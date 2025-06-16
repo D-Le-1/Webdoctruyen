@@ -1,5 +1,5 @@
-import { useParams } from 'react-router-dom'
-import React from 'react'
+import { useParams, useSearchParams } from 'react-router-dom'
+import React, { useEffect } from 'react'
 import { useTruyendetail } from '../hooks/useTruyenDetail'
 import ChapterList from '../components/ChapterListComponent'
 import { Chapter } from '../utils/type'
@@ -8,7 +8,9 @@ const ComicDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>()
   const { data, isLoading, error } = useTruyendetail(slug!)
 
-  console.log('Comic Detail Data:', data)
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }) // Hoặc 'auto'
+  }, [])
 
   if (isLoading) {
     return (
