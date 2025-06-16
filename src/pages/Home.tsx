@@ -54,7 +54,7 @@ const Home: React.FC = () => {
       <SliderBanner items={truyenList} />
       {homeTruyenList.length > 0 && (
         <div className="mb-8 p-4">
-          <h2 className="mb-4 text-xl font-semibold">Truyện đề cử</h2>
+          <h2 className="mb-4 text-2xl font-bold">Truyện đề cử</h2>
           <div className="flex w-full snap-x scroll-pl-6 space-x-4 overflow-x-auto">
             {homeTruyenList.map((truyen) => (
               <Link

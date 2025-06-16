@@ -52,6 +52,10 @@ const ReadComic: React.FC = () => {
     }
   }, [slug, chapterId, markAsRead])
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }) // Cuộn lên đầu trang khi tải chapter mới
+  }, [chapterId])
+
   const allChapters = useMemo(() => {
     if (!truyen?.item?.chapters) return []
 

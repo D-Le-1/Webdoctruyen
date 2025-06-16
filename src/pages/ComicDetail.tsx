@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import React, { useEffect } from 'react'
 import { useTruyendetail } from '../hooks/useTruyenDetail'
 import ChapterList from '../components/ChapterListComponent'
