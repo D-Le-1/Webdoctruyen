@@ -1,20 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { useTruyen } from '../hooks/useTruyen'
 import TruyenCard from '../components/TruyenComponent'
 import SliderBanner from 'components/SliderBanner'
+import { useSearchParams } from 'react-router-dom'
 import { Truyen } from '../utils/type'
 import { useTruyenHome } from '../hooks/useTruyenhome'
 import PaginationComponent from '../components/PaginationComponent'
 import { Link } from 'react-router-dom'
 
 const Home: React.FC = () => {
-  const [page, setPage] = useState(1)
+  const [searchParams, setSearchParams] = useSearchParams()
+  const page = parseInt(searchParams.get('page') || '1', 10)
   const { data, isLoading, error } = useTruyen(page)
   const { data: homeData } = useTruyenHome()
   console.log('Home data:', homeData)
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }) // hoặc 'auto'
+  }, [page])
+
   const handlePageChange = (newPage: number) => {
-    setPage(newPage)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    setSearchParams({ page: newPage.toString() })
   }
 
   if (isLoading) {

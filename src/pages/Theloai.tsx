@@ -1,22 +1,29 @@
-import React, { useState } from 'react'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useTruyenByTheloai } from './../hooks/useTruyenByTheloai'
 import TruyenCard from '../components/TruyenComponent'
 import PaginationComponent from '../components/PaginationComponent'
+import { useSearchParams } from 'react-router-dom'
 import { Truyen } from '../utils/type'
 
 const TheloaiPage: React.FC = () => {
   const { slug } = useParams<{ slug: string | undefined }>()
-  const [page, setPage] = useState(1)
+  const [searchParams, setSearchParams] = useSearchParams()
+  const page = parseInt(searchParams.get('page') || '1', 10)
   const {
     data: theloaiData,
     isLoading,
     isError
   } = useTruyenByTheloai(slug!, page)
 
+  console.log('Theloai data:', theloaiData)
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }) // hoặc 'auto'
+  }, [page])
+
   const handlePageChange = (newPage: number) => {
-    setPage(newPage)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    setSearchParams({ page: newPage.toString() })
   }
 
   const truyenList: Truyen[] = theloaiData?.items || []
@@ -40,9 +47,10 @@ const TheloaiPage: React.FC = () => {
       {truyenList.length > 0 ? (
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           {truyenList.map((truyen) => {
-            if ('slug' in truyen) {
+            if (truyen.chaptersLatest != null && 'slug' in truyen) {
               return <TruyenCard key={truyen.slug} truyen={truyen} />
             }
+            return null
           })}
         </div>
       ) : (
