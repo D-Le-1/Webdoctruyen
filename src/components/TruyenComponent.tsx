@@ -9,7 +9,7 @@ interface TruyenCardProps {
 
 const TruyenCard: React.FC<TruyenCardProps> = ({ truyen }) => {
   return (
-    <div className="group relative h-full overflow-hidden rounded-lg border border-gray-200 bg-white pl-4 transition-all duration-300 hover:shadow-xl">
+    <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:shadow-xl">
       {/* Image Container */}
       <div className="relative flex items-center justify-center overflow-hidden">
         <img
@@ -22,7 +22,7 @@ const TruyenCard: React.FC<TruyenCardProps> = ({ truyen }) => {
       </div>
 
       {/* Content Container */}
-      <Link to={`/truyen/${truyen.slug}`} className="p-4">
+      <Link to={`/truyen/${truyen.slug}`} className="mt-4 flex flex-col gap-2">
         <h2 className="line-clamp-2 text-lg font-semibold text-gray-800 transition-colors group-hover:text-orange-600">
           {truyen.name}
         </h2>

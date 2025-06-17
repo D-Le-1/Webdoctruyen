@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import React, { useEffect } from 'react'
 import { useTruyendetail } from '../hooks/useTruyenDetail'
 import ChapterList from '../components/ChapterListComponent'
@@ -37,6 +37,14 @@ const ComicDetail: React.FC = () => {
 
   return (
     <div className="mx-auto max-w-4xl p-6">
+      <div className="mb-6 flex items-center gap-2 text-gray-500">
+        <Link to="/" className="text-gray-600">
+          Trang chủ
+        </Link>
+        <Link to={`/truyen/${comic.slug}`} className="text-gray-600">
+          / {comic.name}
+        </Link>
+      </div>
       {/* Header Section */}
       <div className="mb-8 flex flex-col gap-6 md:flex-row">
         <div className="md:w-1/3">

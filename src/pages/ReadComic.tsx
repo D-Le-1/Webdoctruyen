@@ -1,6 +1,7 @@
 import React, { useMemo, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useChapter } from '../hooks/useChapter'
+import { Link } from 'react-router-dom'
 import { useTruyendetail } from '../hooks/useTruyenDetail'
 import { useReadStore } from '../utils/store/useReadStore'
 import {
@@ -21,6 +22,8 @@ const ReadComic: React.FC = () => {
     error,
     refetch
   } = useChapter(chapterId || '')
+
+  console.log(truyen)
 
   const markAsRead = useReadStore((state) => state.markAsRead)
   const getReadChapters = useReadStore((state) => state.getReadChapters)
@@ -141,6 +144,14 @@ const ReadComic: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center gap-4 p-4">
+      <div className="mb-6 flex gap-2 text-gray-500">
+        <Link to="/" className="text-gray-600">
+          Trang chủ
+        </Link>
+        <Link to={`/truyen/${slug}`} className="text-gray-600">
+          / {item.comic_name}
+        </Link>
+      </div>
       <div className="top-0 z-10 w-full max-w-screen-md rounded-lg bg-white p-4 shadow-md">
         <h1 className="text-md mb-4 text-center">
           {item.comic_name} - Chương{' '}
