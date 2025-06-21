@@ -6,6 +6,7 @@ import Search from '../pages/Search'
 import Login from '../pages/Login'
 import ReadComic from '../pages/ReadComic'
 import TheloaiPage from '../pages/Theloai'
+import TruyenDaDoc from '../pages/ComicHadRead'
 
 const router = createBrowserRouter([
   {
@@ -16,7 +17,8 @@ const router = createBrowserRouter([
       { path: 'truyen/:slug', element: <ComicDetail /> },
       { path: 'truyen/:slug/:chapterId', element: <ReadComic /> },
       { path: 'tim-kiem', element: <Search /> },
-      { path: 'the-loai/:slug', element: <TheloaiPage /> }
+      { path: 'the-loai/:slug', element: <TheloaiPage /> },
+      { path: 'truyen-da-doc', element: <TruyenDaDoc /> }
     ]
   },
   {

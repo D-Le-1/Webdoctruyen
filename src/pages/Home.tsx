@@ -13,7 +13,7 @@ const Home: React.FC = () => {
   const page = parseInt(searchParams.get('page') || '1', 10)
   const { data, isLoading, error } = useTruyen(page)
   const { data: homeData } = useTruyenHome()
-  console.log('Home data:', homeData)
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' }) // hoặc 'auto'
   }, [page])

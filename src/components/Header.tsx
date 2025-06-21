@@ -12,6 +12,11 @@ export default function Header() {
           <li className="text-md font-bold">
             <Link to="/tim-kiem">Thể loại</Link>
           </li>
+          <li className="text-md font-bold">
+            <Link to="/truyen-da-doc" className="text-md font-bold">
+              Truyện đã đọc
+            </Link>
+          </li>
         </ul>
       </div>
     </header>

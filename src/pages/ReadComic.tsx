@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect } from 'react'
+import React, { useMemo, useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useChapter } from '../hooks/useChapter'
 import { Link } from 'react-router-dom'
@@ -10,10 +10,12 @@ import {
   ServerChapterData,
   Chapter
 } from '../utils/type'
+import ListChapComponent from '../components/ModalChap'
 
 const ReadComic: React.FC = () => {
   const { slug, chapterId } = useParams<{ slug: string; chapterId: string }>()
   const navigate = useNavigate()
+  const [Modal, setOpenModal] = useState(false)
   const { data: truyen } = useTruyendetail(slug!)
   const {
     data: chapterContent,
@@ -22,8 +24,6 @@ const ReadComic: React.FC = () => {
     error,
     refetch
   } = useChapter(chapterId || '')
-
-  console.log(truyen)
 
   const markAsRead = useReadStore((state) => state.markAsRead)
   const getReadChapters = useReadStore((state) => state.getReadChapters)
@@ -79,6 +79,7 @@ const ReadComic: React.FC = () => {
     )
   }, [truyen, isRead])
 
+  console.log(truyen)
   const currentChapterIndex = useMemo(() => {
     return allChapters.findIndex(
       (chapter: ChapterItem) => chapter.chapterId === chapterId
@@ -133,10 +134,6 @@ const ReadComic: React.FC = () => {
     }
   }
 
-  const goToChapterList = () => {
-    navigate(`/truyen/${slug}`)
-  }
-
   const hasPreviousChapter = currentChapterIndex > 0
   const hasNextChapter = currentChapterIndex < allChapters.length - 1
 
@@ -170,11 +167,21 @@ const ReadComic: React.FC = () => {
             ←
           </button>
           <button
-            onClick={goToChapterList}
+            onClick={() => setOpenModal(true)}
             className="rounded-lg bg-green-500 px-4 py-2 font-medium text-white hover:bg-green-600"
           >
             Chương
           </button>
+          {Modal && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+              onClick={() => setOpenModal(false)}
+            >
+              <div onClick={(e) => e.stopPropagation()}>
+                <ListChapComponent slug={slug} chuong={truyen.item.chapters} />
+              </div>
+            </div>
+          )}
           <button
             onClick={goToNextChapter}
             disabled={!hasNextChapter}
@@ -193,7 +200,7 @@ const ReadComic: React.FC = () => {
           </div>
         )}
       </div>
-      <div className="flex w-full max-w-screen-md flex-col gap-2">
+      <div className="flex w-full max-w-screen-md flex-col">
         {item.chapter_image.map((img: ChapterImage) => (
           <img
             key={img.image_page}

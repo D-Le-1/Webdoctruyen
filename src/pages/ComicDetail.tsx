@@ -3,14 +3,30 @@ import React, { useEffect } from 'react'
 import { useTruyendetail } from '../hooks/useTruyenDetail'
 import ChapterList from '../components/ChapterListComponent'
 import { Chapter } from '../utils/type'
+import { useReadTruyenStore } from '../utils/store/useReadStore'
 
 const ComicDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>()
   const { data, isLoading, error } = useTruyendetail(slug!)
+  const addTruyen = useReadTruyenStore((state) => state.addTruyen)
 
+  console.log('ComicDetail data:', data) // Debug
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' }) // Hoặc 'auto'
   }, [])
+
+  useEffect(() => {
+    if (data?.item) {
+      const item = data.item
+      console.log('Gọi addTruyen với:', item)
+      addTruyen({
+        id: item.id,
+        name: item.name,
+        slug: item.slug,
+        image: `https://img.otruyenapi.com/uploads/comics/${item.thumb_url}`
+      })
+    }
+  }, [data])
 
   if (isLoading) {
     return (

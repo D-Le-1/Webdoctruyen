@@ -1,10 +1,17 @@
 import { create } from 'zustand'
+import { persist } from 'zustand/middleware'
+import { Truyen } from '../utils/type'
 
 interface ReadState {
   readChaptersMap: Record<string, Set<string>>
   getReadChapters: (comicSlug: string) => Set<string>
   markAsRead: (comicSlug: string, chapterId: string) => void
   clearReadStatus: (comicSlug: string) => void
+}
+
+interface ReadTruyenStore {
+  readTruyen: Truyen[]
+  addTruyen: (truyen: Truyen) => void
 }
 
 export const useReadStore = create<ReadState>((set, get) => ({
@@ -88,3 +95,31 @@ export const useReadStore = create<ReadState>((set, get) => ({
     })
   }
 }))
+
+export const useReadTruyenStore = create(
+  persist<ReadTruyenStore>(
+    (set, get) => ({
+      readTruyen: [],
+      addTruyen: (truyen) => {
+        const exists = get().readTruyen.find(
+          (t) => String(t.id) === String(truyen.id)
+        )
+        if (!exists) {
+          set((state) => ({
+            readTruyen: [...state.readTruyen, truyen]
+          }))
+        }
+      },
+      removeTruyen: (id) => {
+        set((state) => ({
+          readTruyen: state.readTruyen.filter(
+            (t) => String(t.id) !== String(id)
+          )
+        }))
+      }
+    }),
+    {
+      name: 'read-truyen-storage'
+    }
+  )
+)
