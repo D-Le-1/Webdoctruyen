@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { Truyen } from '../utils/type'
+import { Truyen } from '../type'
 
 interface ReadState {
   readChaptersMap: Record<string, Set<string>>
@@ -110,7 +110,7 @@ export const useReadTruyenStore = create(
           }))
         }
       },
-      removeTruyen: (id) => {
+      removeTruyen: (id: string | number) => {
         set((state) => ({
           readTruyen: state.readTruyen.filter(
             (t) => String(t.id) !== String(id)

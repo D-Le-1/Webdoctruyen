@@ -94,6 +94,7 @@ export interface Chapter {
   chapter_api_data: string
   filename: string
   isRead?: boolean
+  comic_id?: string
   server_name?: string
   isCurrent?: boolean
 }

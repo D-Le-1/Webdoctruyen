@@ -5,6 +5,7 @@ import { ServerChapterData, Chapter } from '../utils/type'
 interface ListChapProps {
   chuong: ServerChapterData[]
   slug?: string // Thêm slug prop
+  openModal?: () => void
 }
 
 const ListChapComponent: React.FC<ListChapProps> = ({
