@@ -173,12 +173,13 @@ const ReadComic: React.FC = () => {
             Chương
           </button>
           {Modal && (
-            <div
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
-              onClick={() => setOpenModal(false)}
-            >
+            <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
               <div onClick={(e) => e.stopPropagation()}>
-                <ListChapComponent slug={slug} chuong={truyen.item.chapters} />
+                <ListChapComponent
+                  closeModal={() => setOpenModal(false)}
+                  slug={slug}
+                  chuong={truyen.item.chapters}
+                />
               </div>
             </div>
           )}

@@ -10,7 +10,6 @@ const ComicDetail: React.FC = () => {
   const { data, isLoading, error } = useTruyendetail(slug!)
   const addTruyen = useReadTruyenStore((state) => state.addTruyen)
 
-  console.log('ComicDetail data:', data) // Debug
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' }) // Hoặc 'auto'
   }, [])
@@ -18,12 +17,14 @@ const ComicDetail: React.FC = () => {
   useEffect(() => {
     if (data?.item) {
       const item = data.item
-      console.log('Gọi addTruyen với:', item)
       addTruyen({
         id: item.id,
         name: item.name,
         slug: item.slug,
-        image: `https://img.otruyenapi.com/uploads/comics/${item.thumb_url}`
+        title: item.title || item.name, // dùng name nếu không có title riêng
+        status: item.status || 'Đang cập nhật',
+        chaptersLatest: item.chaptersLatest || [], // hoặc truyền mảng chương nếu có
+        thumb_url: `https://img.otruyenapi.com/uploads/comics/${item.thumb_url}` // nếu vẫn muốn dùng
       })
     }
   }, [data])

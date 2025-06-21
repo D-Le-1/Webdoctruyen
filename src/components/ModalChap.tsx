@@ -4,14 +4,14 @@ import { ServerChapterData, Chapter } from '../utils/type'
 
 interface ListChapProps {
   chuong: ServerChapterData[]
-  slug?: string // Thêm slug prop
-  openModal?: () => void
+  slug?: string
+  closeModal?: () => void
 }
 
 const ListChapComponent: React.FC<ListChapProps> = ({
   chuong,
   slug,
-  openModal
+  closeModal
 }) => {
   const [currentPage, setCurrentPage] = useState(1)
   const [chaptersPerPage] = useState(50) // Giới hạn 50 chương mỗi trang
@@ -74,7 +74,7 @@ const ListChapComponent: React.FC<ListChapProps> = ({
         {currentChapters.map((chapter, index) => (
           <Link
             key={`${chapter.comicId}-${chapter.chapterId}-${index}`}
-            onClick={() => openModal(false)}
+            onClick={() => closeModal?.()}
             to={`/truyen/${slug}/${chapter.chapterId}`}
             className="flex items-center justify-center rounded-md border border-green-400 p-2 text-center text-xs transition-colors hover:bg-green-50 hover:underline"
           >

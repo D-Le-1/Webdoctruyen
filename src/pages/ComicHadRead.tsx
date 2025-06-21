@@ -15,7 +15,7 @@ const TruyenDaDoc = () => {
         {readTruyen.map((truyen) => (
           <li key={truyen.id} className="border p-2">
             <Link to={`/truyen/${truyen.slug}`}>
-              <img src={truyen.image} alt={truyen.name} className="mb-2" />
+              <img src={truyen.thumb_url} alt={truyen.name} className="mb-2" />
               <p className="font-semibold text-blue-500">{truyen.name}</p>
             </Link>
           </li>
