@@ -140,7 +140,7 @@ const ReadComic: React.FC = () => {
   const currentChapterInfo = allChapters[currentChapterIndex]
 
   return (
-    <div className="flex flex-col items-center gap-4 p-4">
+    <div className="flex flex-col items-center gap-4">
       <div className="mb-6 flex gap-2 text-gray-500">
         <Link to="/" className="text-gray-600">
           Trang chủ
