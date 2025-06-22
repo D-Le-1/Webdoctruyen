@@ -201,7 +201,7 @@ const ReadComic: React.FC = () => {
           </div>
         )}
       </div>
-      <div className="flex w-full max-w-screen-md flex-col">
+      <div className="flex w-full flex-col md:max-w-screen-md">
         {item.chapter_image.map((img: ChapterImage) => (
           <img
             key={img.image_page}
